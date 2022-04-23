@@ -1,23 +1,36 @@
 package ru.netology.domain;
 
 public class Radio {
+
+    private int countRadioStation = 10;
+    private int minRadioStation;
+    private int maxRadioStation;
     private int currentRadioStation;
+    private int minSoundVolume;
+    private int maxSoundVolume;
     private int currentSoundVolume;
+
+    public Radio() {
+
+    }
+
+    public Radio(int countRadioStation, int maxSoundVolume) {
+        this.countRadioStation = countRadioStation;
+        this.maxSoundVolume = maxSoundVolume;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
-    }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
-            currentRadioStation = 0;
+        this.maxRadioStation = countRadioStation - 1;
+        if (currentRadioStation > maxRadioStation) {
+            currentRadioStation = minRadioStation;
         }
-        if (currentRadioStation < 0) {
-            currentRadioStation = 9;
+        if (currentRadioStation < minRadioStation) {
+            currentRadioStation = maxRadioStation;
         }
         this.currentRadioStation = currentRadioStation;
     }
@@ -32,12 +45,16 @@ public class Radio {
         setCurrentRadioStation(currentRadioStation);
     }
 
+    public int getCurrentSoundVolume() {
+        return currentSoundVolume;
+    }
+
     public void setCurrentSoundVolume(int currentSoundVolume) {
-        if (currentSoundVolume > 10) {
-            currentSoundVolume = 10;
+        if (currentSoundVolume > maxSoundVolume) {
+            currentSoundVolume = maxSoundVolume;
         }
-        if (currentSoundVolume < 0) {
-            currentSoundVolume = 0;
+        if (currentSoundVolume < minSoundVolume) {
+            currentSoundVolume = minSoundVolume;
         }
         this.currentSoundVolume = currentSoundVolume;
     }
