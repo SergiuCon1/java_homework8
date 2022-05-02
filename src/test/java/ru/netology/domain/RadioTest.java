@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio radio = new Radio(30, 100);
+    Radio radio = new Radio(30);
 
     @Test
     @DisplayName("Получение текущей радиостанции")

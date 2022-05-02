@@ -7,16 +7,14 @@ public class Radio {
     private int maxRadioStation;
     private int currentRadioStation;
     private int minSoundVolume;
-    private int maxSoundVolume;
+    private int maxSoundVolume = 100;
     private int currentSoundVolume;
 
     public Radio() {
-
     }
 
-    public Radio(int countRadioStation, int maxSoundVolume) {
+    public Radio(int countRadioStation) {
         this.countRadioStation = countRadioStation;
-        this.maxSoundVolume = maxSoundVolume;
     }
 
     public int getCurrentRadioStation() {
